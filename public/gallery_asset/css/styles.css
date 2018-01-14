@@ -151,9 +151,13 @@ html { overflow-y: scroll; }
 /** page structure **/
 #w {
   display: block;
-  width: 750px;
+
+ /* width: 750px; */
+ min-height: 100% !important;
+ height: 100%;
   margin: 0 auto;
   padding-top: 30px;
+  padding-bottom: 30px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 

@@ -11,29 +11,19 @@
   <tr>
     <th>image</th>
     <th>Description</th>
-    <th>Status</th>
     <th></th>
     <th></th>
   </tr>
 
-{{--
-
-  @foreach($user as $user)
+  @foreach($data as $data)
   <tr>
-    <td>{{$user->name}}</td>
-    <td>{{$user->email}}</td>
-    @if($user->status==0)
-    <td>Normal</td>
-    @else
-    <td>Teacher</td>
-    @endif
-      <td><a href="/admin_user_update/{{$user->id}}"><button type="button" class="btn btn-primary">Update</button></a></td>
-  <td><a href="/admin_user_delete/{{$user->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+    <td><a href="{{URL::asset($data->dir)}}"><img src="{{URL::asset($data->dir)}}" style="width: 25%;height: 25%"></a></td>
+    <td>{{$data->description}}</td>
+      <td><a href="/admin/gallery/update/{{$data->id}}"><button type="button" class="btn btn-primary">Update</button></a></td>
+  <td><a href="/admin/gallery/delete/{{$data->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
       </tr>
 
   @endforeach
-
---}}
 
 </table>
 

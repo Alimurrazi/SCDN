@@ -16,7 +16,7 @@
                                 <a class="active" href="index.html">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">Gallery</a>
+                                <a href="/gallery">Gallery</a>
                             </li>
                             <li>
                                 <a href="service.html">Service</a>
