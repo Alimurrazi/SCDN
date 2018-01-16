@@ -314,7 +314,8 @@ a.navbar-brand {
     font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
     font-size: 40px;
     padding-top: 20px;
-    color: #ff432e !important;
+   /* color: #ff432e !important; */
+    color: #0c769d !important;
 }
 
 .navbar-default .navbar-nav {
@@ -355,9 +356,10 @@ a.navbar-brand {
 
 .navbar-default .navbar-nav > li > a.active, 
 .navbar-default .navbar-nav > li:hover > a {
-	border-top: 2px solid #FF432E;
+	border-top: 2px solid #0c769d; /* #FF432E; */
     color: #fff;
-    background: #FF432E;
+   /* background: #FF432E; */
+    background: #0c769d;
     //padding: 25px 15px 30px;
 }
 
@@ -507,7 +509,8 @@ a.navbar-brand {
 }
 
 .banner .intro-text h1 span {
-    color: #ff432e;
+    /*color: #ff432e; */
+    color:  #0c769d;
 }
 
 .banner .intro-text p {

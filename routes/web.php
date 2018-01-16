@@ -34,7 +34,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/gallery/update/{id}','adminController@gallery_update_first');
     Route::post('/admin/gallery/update/{id}','adminController@gallery_update_second');
     Route::get('/admin/gallery/delete/{id}','adminController@gallery_delete');
+
+    Route::get('/admin/developer_list','adminController@developer_list');
 });
+
 Route::get('/gallery','galleryController@index');
+
+Route::get('/developer_list','developerController@index');
+Route::get('/developer_list/specific/{id}','developerController@specific');
+Route::get('/announcement','announcementController@index');
 
 Route::get('/home', 'HomeController@index');

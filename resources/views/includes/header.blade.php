@@ -13,16 +13,16 @@
                         <!-- Start Navigation List -->
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a class="active" href="index.html">Home</a>
+                                <a class="active" id="nav_home" href="index.html">Home</a>
                             </li>
                             <li>
-                                <a href="/gallery">Gallery</a>
+                                <a id="nav_gallery" href="/gallery">Gallery</a>
                             </li>
                             <li>
-                                <a href="service.html">Service</a>
+                                <a id="nav_developer" href="/developer_list">Developer's List</a>
                             </li>
                             <li>
-                                <a href="portfolio.html">Portfolio</a>
+                                <a id="news" href="/announcement">Announcement</a>
                             </li>
                             <li>
                                 <a href="blog.html">Blog</a>

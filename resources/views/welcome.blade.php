@@ -78,10 +78,10 @@
                                 <a href="/gallery">Gallery</a>
                             </li>
                             <li>
-                                <a href="service.html">Service</a>
+                                <a href="/developer_list">Developer List</a>
                             </li>
                             <li>
-                                <a href="portfolio.html">Portfolio</a>
+                                <a href="/announcement">Announcement</a>
                             </li>
                             <li>
                                 <a href="blog.html">Blog</a>

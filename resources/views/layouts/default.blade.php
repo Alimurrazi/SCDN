@@ -3,6 +3,9 @@
 <head>
     @include('includes.head')
     @yield('gallery')
+    @yield('developer_list')
+    @yield('developer_list_specific')
+    @yield('announcement')
 </head>
 <body>
 
