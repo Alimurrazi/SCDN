@@ -19,6 +19,11 @@ class CreateDevelopersTable extends Migration
            $table->string('specialty');
            $table->string('email');
            $table->string('website');
+           $table->string('facebook');
+           $table->string('twitter');
+           $table->string('github');
+           $table->string('linkedin');
+           $table->timestamps();
         });
     }
 

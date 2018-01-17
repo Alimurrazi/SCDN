@@ -36,6 +36,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/gallery/delete/{id}','adminController@gallery_delete');
 
     Route::get('/admin/developer_list','adminController@developer_list');
+    Route::get('/admin/developer/add',function(){
+         return view('admin.developer_add');
+    });
+
 });
 
 Route::get('/gallery','galleryController@index');

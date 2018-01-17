@@ -21,6 +21,9 @@ class adminController extends Controller
 
     public function gallery_add()
     {
+       
+       //return Input::all();
+      //  return Input::get('same[0]');
 
        if(Input::hasFile('avatar')) 
        {
@@ -79,5 +82,18 @@ class adminController extends Controller
            ->delete();
 
       return redirect('/admin/gallery');       
+    }
+
+    public function developer_list()
+    {
+      $data=DB::table('developers')
+            ->get();
+
+      return view::make('admin.developer')->with('data',$data);      
+    }
+
+    public function developer_add()
+    {
+
     }
 }
