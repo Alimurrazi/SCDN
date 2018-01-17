@@ -7,6 +7,9 @@ use Illuminate\support\facades\Input;
 use View;
 use DB;
 use App\image;
+use App\developer;
+use App\developer_experience;
+use App\developer_skill;
 
 class adminController extends Controller
 {
@@ -94,6 +97,67 @@ class adminController extends Controller
 
     public function developer_add()
     {
+      // return Input::all();
+      // return Input::get('experience[0]');
+      // return "hello";
+
+       $developer=new developer;
+       $developer->name=Input::get('name');
+       $developer->specialty=Input::get('specialty');
+       $developer->email=Input::get('email');
+       $developer->website=Input::get('website');
+       $developer->facebook=Input::get('facebook');
+       $developer->twitter=Input::get('twitter');
+       $developer->github=Input::get('github');
+       $developer->linkedin=Input::get('linkedin');
+       
+        if(Input::hasFile('avatar')) 
+       {
+        $avatar=Input::file('avatar');
+        $filename=time().'.'.$avatar->getClientOriginalExtension();
+        $avatar->move(public_path().'/'.'img'.'/'.'developer_list'.'/',$filename);
+       }
+
+       $developer->image='img/developer_list/'.$filename;
+       $developer->save();
+
+    //   $developer_id=DB::table('developers')
+      //                ->max('id');
+          $developer_id=$developer->id;
+       
+    //   $experience_row=new developer_experience;
+  
+       $experience=Input::get('experience');
+       $duration=Input::get('duration');
+       foreach( $experience as $index => $experience )
+       {
+        $experience_row=new developer_experience;
+        $experience_row->developer_id=$developer_id;
+        $experience_row->experience=$experience;
+        $experience_row->duration=$duration[$index];
+        $experience_row->save();
+       }
+
+       $skill=Input::get('skill');
+       foreach($skill as $skill)
+       {
+         $skill_row=new developer_skill;
+         $skill_row->developer_id=$developer_id;
+         $skill_row->skill=$skill;
+         $skill_row->save();
+       }
 
     }
+    public function announcement()
+    {
+      $data=DB::table('announcements')
+            ->get();
+
+      return view::make('admin.announcement')->with('data',$data);      
+    }
+    public function announcement_add()
+    {
+      return Input::all();
+    }
 }
+ 

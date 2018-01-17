@@ -55,7 +55,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar {
-    min-width: 250px;
+    min-width: 210px;
     max-width: 250px;
     background: #7386D5;
     color: #fff;

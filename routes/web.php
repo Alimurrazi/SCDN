@@ -39,6 +39,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/developer/add',function(){
          return view('admin.developer_add');
     });
+   Route::post('/admin/developer/add','adminController@developer_add');
+   
+   Route::get('admin/announcement','adminController@announcement');
+   Route::get('/admin/announcement/add',function(){
+         return view('admin.announcement_add');
+    }); 
+   Route::post('admin/announcement/add','adminController@announcement_add');
 
 });
 

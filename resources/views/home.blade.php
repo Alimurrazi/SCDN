@@ -39,7 +39,7 @@
                         <a href="/admin/gallery">Gallery</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="/admin/announcement">Announcement</a>
                     </li>
                 </ul>
 

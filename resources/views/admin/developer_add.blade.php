@@ -10,22 +10,32 @@
 		{
 			margin-top: 10px;
 		}
+		.s_option
+		{
+			margin-left: 5px;
+		}
+		.specialty
+		{
+			margin: 5px;
+		}
 	</style>
 </head>
 <body>
-
+ 
  <div class="container">
- <form method="post" action="/admin/gallery/add" class="form" accept-charset="UTF-8" enctype="multipart/form-data" style="margin-top: 0">
+ <form method="post" action="/admin/developer/add" class="form" accept-charset="UTF-8" enctype="multipart/form-data" style="margin-top: 0">
  <div class="row">
  	<div class="col-md-6">
  	 <h3>Basic</h3>
  	 <img src=" " id="img" style="width: 150px; height: 150px; margin-right: 25px;">
  	 <input type="file" id="file" name="avatar" style="margin-bottom: 5px" required>
  	<label>Name</label> <input type="text" name="name" placeholder="Name"><br>
- 	<label>Specialty</label> <br><input type="radio" name="specialty" value="Web Developer">Web Developer<br>
- 	<input type="radio" name="specialty" value="Android Developer">Android Developer<br>
- 	<input type="radio" name="specialty" value="IOS Developer">IOS Developer<br>
-
+ 	<div class="specialty">
+ 	<label>Specialty</label> <br>
+ 	<input type="radio" name="specialty" value="Web Developer"><span class="s_option">Web Developer</span><br>
+ 	<input type="radio" name="specialty" value="Android Developer"><span class="s_option">Android Developer</span><br>
+ 	<input type="radio" name="specialty" value="IOS Developer"><span class="s_option">IOS Developer</span><br>
+    </div>
  	<label>Email</label> <input type="email" name="email" placeholder="Email">
  	</div>
  	<div class="col-md-6">
@@ -59,12 +69,26 @@
   	</div>
   	
   </div>
-    
+     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <button type="submit" id="submit">Submit</button>
 </form>
  	
  </div>
 <script type="text/javascript">
+
+  function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#img').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+$("#file").change(function() {
+  readURL(this);
+});
+
 	function addExperience()
 	{
 		var experience=' 	<div class="experience"><input type="text" name="experience[]" placeholder="Experience"><br> <input type="text" name="duration[]" placeholder="duration"><br></div> '
