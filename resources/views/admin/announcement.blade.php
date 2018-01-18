@@ -11,15 +11,18 @@
   <tr>
     <th>Title</th>
     <th>Content</th>
+    <th>Date</th>
     <th></th>
     <th></th>
   </tr>
 
   @foreach($data as $data)
   <tr>
-    <td>{{$data->description}}</td>
-      <td><a href="/admin/developer/update/{{$data->id}}"><button type="button" class="btn btn-primary">Update</button></a></td>
-  <td><a href="/admin/developer/delete/{{$data->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+    <td>{{$data->title}}</td>
+    <td>{{$data->content}}</td>
+    <td>{{$data->date}}</td>
+      <td><a href="/admin/announcement/update/{{$data->id}}"><button type="button" class="btn btn-primary">Update</button></a></td>
+  <td><a href="/admin/announcement/delete/{{$data->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
       </tr>
 
   @endforeach

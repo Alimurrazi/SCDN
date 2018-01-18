@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\support\facades\Input;
 use View;
 use DB;
+use File;
 use App\image;
 use App\developer;
 use App\developer_experience;
 use App\developer_skill;
+use App\announcement;
+use App\attachment;
 
 class adminController extends Controller
 {
@@ -155,9 +158,94 @@ class adminController extends Controller
 
       return view::make('admin.announcement')->with('data',$data);      
     }
+
     public function announcement_add()
     {
-      return Input::all();
+
+      $announcement=new announcement;
+      $announcement->title=Input::get('title');
+      $announcement->content=Input::get('content');
+      $announcement->date=Input::get('date');
+      $announcement->save();
+
+      $attachment=new attachment;
+      $attachment->announcement_id=$announcement->id;
+
+      if(Input::hasFile('file')) 
+       {
+        $file=Input::file('file');
+        $filename=time().'.'.$file->getClientOriginalExtension();
+        $file->move(public_path().'/'.'attachment'.'/',$filename);
+       $attachment->dir='attachment/'.$filename;
+        }
+        else
+         $attachments->dir="null";
+          
+       $attachment->save();
+
+       return redirect('admin/announcement');
     }
+    
+    public function announcement_delete($id)
+    {
+        $filepath=DB::table('attachments')
+                  ->where('announcement_id','=',$id)
+                  ->value('dir');
+
+        File::delete(public_path().'/'.$filepath); 
+
+       DB::table('announcements')
+           ->where('id','=',$id)
+           ->delete();    
+
+      DB::table('attachments')
+           ->where('announcement_id','=',$id)
+           ->delete();
+      
+      return redirect('admin/announcement');    
+    }
+
+    public function announcement_update_first($id)
+    {
+      //return $id;
+       $data=DB::table('announcements')
+             ->where('announcements.id','=',$id)
+             ->join('attachments','attachments.announcement_id','=','announcements.id')
+             ->select('announcements.id','announcements.title','announcements.content','announcements.date','attachments.dir')
+             ->get();
+
+      //  return $data;  
+      //  echo $data->title;   
+         
+      return view::make('admin.announcement_update')->with('data',$data);       
+    }
+
+    public function announcement_update_second($id)
+    {
+        DB::table('announcements')
+        ->where('id','=',$id)
+        ->update(['title'=>Input::get('title'),'content'=>Input::get('content'),'date'=>Input::get('date')]);
+       
+       if(Input::hasFile('file')) 
+       {
+        $file=Input::file('file');
+        $filename=time().'.'.$file->getClientOriginalExtension();
+        $file->move(public_path().'/'.'attachment'.'/',$filename);
+        $attachment->dir='attachment/'.$filename;
+        
+        $filepath=DB::table('attachments')
+                  ->where('announcement_id','=',$id)
+                  ->value('dir');
+        if($filepath!="null")
+        File::delete(public_path().'/'.$filepath);
+
+        DB::table('attachments')
+         ->where('announcement_id','=',$id)
+         ->update(['dir'=>'attachment/'.$filename]);
+
+        }
+
+    }
+
 }
  

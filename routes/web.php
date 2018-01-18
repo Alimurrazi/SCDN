@@ -46,6 +46,9 @@ Route::group(['middleware' => 'auth'], function () {
          return view('admin.announcement_add');
     }); 
    Route::post('admin/announcement/add','adminController@announcement_add');
+   Route::get('admin/announcement/update/{id}','adminController@announcement_update_first');
+   Route::post('admin/announcement/update/{id}','adminController@announcement_update_second');
+   Route::get('admin/announcement/delete/{id}','adminController@announcement_delete');
 
 });
 
@@ -56,3 +59,6 @@ Route::get('/developer_list/specific/{id}','developerController@specific');
 Route::get('/announcement','announcementController@index');
 
 Route::get('/home', 'HomeController@index');
+Route::get('/blog',function(){
+       return view('blog');
+});
