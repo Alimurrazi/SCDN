@@ -195,8 +195,8 @@
                     <div class="col-md-4">
                         <div class="services-post">
                     <a href="#"><i class="fa fa-code"></i></a>
-                    <h2>Codathon</h2>
-              <p>Questions and updates of Codathon </p>
+                    <h2>Announcement</h2>
+              <p>News about workshop & Codathon </p>
                 </div>
                     </div>
                     <div class="col-md-4">
@@ -222,9 +222,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="services-post">
-                    <a href="#"><i class="fa fa-info-circle"></i></a>
-                    <h2>About</h2>
-              <p>Do you know more about us ? </p>
+                    <a href="#"><i class="fa fa-newspaper-o"></i></a>
+                    <h2>Blog</h2>
+              <p>Explore the tech world </p>
                 </div>
                     </div>
                 </div>

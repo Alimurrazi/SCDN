@@ -13,6 +13,8 @@
 
         <!-- Bootstrap CSS  -->
         
+        <script src="{{ URL::asset('gallery_asset/js/jquery-1.10.1.min.js') }}"></script>
+      
         <link rel="stylesheet" href="{{ URL::asset('asset/bootstrap/css/bootstrap.min.css') }}" type="text/css">
          
         <!-- Font Awesome CSS -->
@@ -33,7 +35,7 @@
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('asset/css/style.css') }}">
         <!-- Responsive CSS Style -->
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('asset/css/responsive.css') }}">
-
+        
 
         <script src="{{ URL::asset('asset/js/modernizrr.js') }}"></script>
 

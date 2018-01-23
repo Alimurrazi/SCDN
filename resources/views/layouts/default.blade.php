@@ -6,6 +6,7 @@
     @yield('developer_list')
     @yield('developer_list_specific')
     @yield('announcement')
+    @yield('announcement_specific')
 </head>
 <body>
 

@@ -38,16 +38,22 @@
 @section('content')
 <div class="container">
 
+@foreach($data as $data)
+
         <ul class="announcement-ul">
 	 <li>
 	 		 <div class="time">
  	<div class="date">10</div>
  	<div class="month">Jan 18</div>
  </div>
- <a href="www.google.com">Hackathon for '14 batch</a>
+ <a href="/announcement/{{$data->id}}">{{$data->title}}</a>
 	 </li>	
 	</ul>
 
+
+@endforeach
+
+<!--
 	<ul class="announcement-ul">
 	 <li>
 	 		 <div class="time">
@@ -58,5 +64,38 @@
 	 </li>	
 	</ul>
 
+		<ul class="announcement-ul">
+	 <li>
+	 		 <div class="time">
+ 	<div class="date">04</div>
+ 	<div class="month">Dec 17</div>
+ </div>
+ <a href="www.google.com">Workshop for '13 batch</a>
+	 </li>	
+	</ul>
+
+	<ul class="announcement-ul">
+	 <li>
+	 		 <div class="time">
+ 	<div class="date">24</div>
+ 	<div class="month">Oct 17</div>
+ </div>
+ <a href="www.google.com">Workshop for '13 batch</a>
+	 </li>	
+	</ul>
+-->
 </div>
+
+<script src="{{ URL::asset('gallery_asset/js/jquery-1.10.1.min.js') }}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    //$('#thumbnails a').lightBox();
+    //$(this).removeAttr( ".active" ); 
+    $('a').removeClass("active");
+    $('#news').addClass("active");
+});
+</script>
+
+
 @endsection

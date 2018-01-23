@@ -25,7 +25,7 @@
                                 <a id="news" href="/announcement">Announcement</a>
                             </li>
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a id="blog" href="/blog">Blog</a>
                                 <ul class="dropdown">
                                     <li>
                                         <a href="blog-item.html">Item Page</a>

@@ -39,7 +39,7 @@ a:visited{
   color:rgba(255,255,255,1); 
 /*  color: #0c769d; */
 }
-
+ 
 a:hover{
   color:rgba(255,255,255,0.6); 
 /*  color: #0c769d; */
@@ -178,7 +178,7 @@ a:hover{
           <div class="col-md-4">
             <div class="team-member">
               <figure>
-                <img src="http://i.imgsafe.org/6a5b608.jpg" alt="" class="img-responsive">
+                <img src="{{URL::asset('img/developer_list/c.png')}}" alt="" class="img-responsive">
                 <figcaption>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores mollitia.</p>
                   <ul>
@@ -188,15 +188,15 @@ a:hover{
                   </ul>
                 </figcaption>
               </figure>
-              <h4>Lauren Cox</h4>
-              <p>Creative Director</p>
+              <h4>Mr. ABC</h4>
+              <p>Web Developer</p>
             </div><!-- /.team-member-->
           </div><!-- /.col-md-4 -->
 
           <div class="col-md-4">
             <div class="team-member">
               <figure>
-                <img src="http://i.imgsafe.org/6c94c4f.jpg" alt="" class="img-responsive">
+                <img src="{{URL::asset('img/developer_list/b.jpg')}}" alt="" class="img-responsive">
                 <figcaption>
                   <p>Neque minima ea, a praesentium saepe nihil maxime quod esse numquam explicabo eligendi.</p>
                   <ul>
@@ -206,15 +206,15 @@ a:hover{
                   </ul>
                 </figcaption>
               </figure>
-              <h4>Jessie Barnett</h4>
-              <p>UI/UX Designer</p>
+              <h4>Mr. DEF</h4>
+              <p>Web Developer</p>
             </div><!-- /.team-member-->
           </div><!-- /.col-md-4 -->
 
           <div class="col-md-4">
             <div class="team-member">
               <figure>
-               <img src="{{URL::asset('img/developer_list/rana.jpg')}}" alt="" class="img-responsive">
+               <img src="{{URL::asset('img/developer_list/c.png')}}" alt="" class="img-responsive">
                 <figcaption>
                   <p style="margin: 50px"></p>
                   <ul>
@@ -224,7 +224,7 @@ a:hover{
                   </ul>
                 </figcaption>
               </figure>
-              <a href="{{URL::asset('/developer_list/specific/1')}}"><h4>Alimur Razi Rana</h4></a>
+              <a href="{{URL::asset('/developer_list/specific/1')}}"><h4>Mr. XYZ</h4></a>
               <p>Web Developer</p>
             </div><!-- /.team-member-->
           </div><!-- /.col-md-4 -->
@@ -236,5 +236,16 @@ a:hover{
     </div><!-- /.row -->
   </div><!-- /.container -->
 </section><!-- /.our-team -->
+
+<script src="{{ URL::asset('gallery_asset/js/jquery-1.10.1.min.js') }}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    //$('#thumbnails a').lightBox();
+    //$(this).removeAttr( ".active" ); 
+    $('a').removeClass("active");
+    $('#nav_developer').addClass("active");
+});
+</script>
 
 @endsection

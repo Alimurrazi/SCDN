@@ -7,23 +7,22 @@
 
         <title>SCDN</title>
 
-         <!-- Bootstrap CSS CDN -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <!-- Our Custom CSS -->
-        <link type="text/css" rel="stylesheet" href="{{URL::asset('css/admin.css')}}">
-         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-         <!-- Bootstrap Js CDN -->
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <link type="text/css" rel="stylesheet" href="{{URL::asset('css/admin.css')}}">
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--    <link rel="stylesheet" href="style5.css"> -->
     </head>
     <body>
 
  
-
+<div class="matha-nosto">
         <div class="wrapper">
             <!-- Sidebar Holder -->
-            <nav id="sidebar">
+            <nav id="sidebar" class="admin">
                 <div class="sidebar-header">
                     <h3>SCDN admin panel</h3>
                 </div>
@@ -41,6 +40,9 @@
                     <li>
                         <a href="/admin/announcement">Announcement</a>
                     </li>
+                    <li>
+                        <a href="/admin/blog">Blog</a>
+                    </li>
                 </ul>
 
             </nav>
@@ -48,7 +50,7 @@
             <!-- Page Content Holder -->
             <div class="container" id="content">
 
-                <nav class="navbar navbar-default">
+                <nav class="navbar navbar-default" class="admin">
                     <div class="container-fluid">
 
                         <div class="navbar-header">
@@ -100,6 +102,7 @@
                         </div>
                     </div>
                 </nav>
+
                 @yield('content')
 
                <div class="line"></div> 
@@ -109,6 +112,8 @@
 
             </div>
         </div>
+        
+    </div>
 
 
 

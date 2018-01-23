@@ -18,4 +18,5 @@ class developer extends Model
     {
     	return $this->hasMany('app\developer_skill');
     }
+    
 }

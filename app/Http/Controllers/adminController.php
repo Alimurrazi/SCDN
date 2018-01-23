@@ -13,6 +13,9 @@ use App\developer_experience;
 use App\developer_skill;
 use App\announcement;
 use App\attachment;
+use App\blog;
+use App\tag_relation;
+use App\tag;
 
 class adminController extends Controller
 {
@@ -244,7 +247,38 @@ class adminController extends Controller
          ->update(['dir'=>'attachment/'.$filename]);
 
         }
+    }
+ 
+    public function blog()
+    {
+      $data=DB::table('blogs')
+            ->get();
 
+       return view::make('admin.blog')->with('data',$data);     
+    }
+
+    public function blog_add()
+    {
+     // return Input::all();
+
+      $blog=new blog;
+      $blog->title=Input::get('title');
+      $blog->content=Input::get('summernote');
+      $blog->author=Input::get('author');
+      $blog->preview=Input::get('preview');
+      $blog->save();
+
+      $tag=Input::get('tag_id');
+
+      foreach($tag as $tag)
+      {
+         $tag_relation=new tag_relation;
+         $tag_relation->blog_id=$blog->id;
+         $tag_relation->tag_id=$tag;
+         $tag_relation->save();
+      }  
+
+      return redirect('admin/blog');
     }
 
 }

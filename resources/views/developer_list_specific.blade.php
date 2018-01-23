@@ -40,8 +40,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6" id="pro-pic">
-    	  <img src="{{URL::asset('img\developer_list\rana.jpg')}}" style="width: 100%">
-    	  <figcaption>Alimur Razi Rana</figcaption>
+    	  <img src="{{URL::asset('img\developer_list\c.png')}}" style="width: 100%">
+    	  <figcaption>Mr. XYZ</figcaption>
     </div>
     <div class="col-md-6" id="about">
       <p><h5>Email:</h5> alimurrazi570@gmail.com</p>
@@ -57,26 +57,16 @@
   	  <h6>2013-2014</h6>
   	  </div>
   	</div>
-  	<div class="col-md-6">
-  		<i class="fa fa-graduation-cap fa-3x"></i><h3 class="sub-title">Education</h3>
-  		<div class="sub-section">
-        <h5><i class="fa fa-circle-o"></i>Study Honors at SUST</h5>
-  		<h6>2013-</h6>
-  	    </div>
-  	    <div class="sub-section">
-  		<h5><i class="fa fa-circle-o"></i>Complete LICT Programme</h5>
-  		<h6>2015-2016</h6>
-  	    </div>
-  	</div>
+        <div class="col-md-6">
+      <i class="fa fa-flask fa-3x"></i><h3 class="sub-title">Skill</h3>
+      <h5><i class="fa fa-circle-o"></i>HTML</h5>
+      <h5><i class="fa fa-circle-o"></i>CSS</h5>
+      <h5><i class="fa fa-circle-o"></i>Javascript</h5>
+      <h5><i class="fa fa-circle-o"></i>Laravel</h5>
+    </div>
   </div>
   <div class="row">
-  	<div class="col-md-6">
-  		<i class="fa fa-flask fa-3x"></i><h3 class="sub-title">Skill</h3>
-  		<h5><i class="fa fa-circle-o"></i>HTML</h5>
-  		<h5><i class="fa fa-circle-o"></i>CSS</h5>
-  		<h5><i class="fa fa-circle-o"></i>Javascript</h5>
-  		<h5><i class="fa fa-circle-o"></i>Laravel</h5>
-  	</div>
+
   </div>
 </div>
   
@@ -97,8 +87,15 @@
   	
   </div>
 -->
+<script src="{{ URL::asset('gallery_asset/js/jquery-1.10.1.min.js') }}"></script>
+
 <script type="text/javascript">
-	    $('a').removeClass("active");
+  $(document).ready(function(){
+    //$('#thumbnails a').lightBox();
+    //$(this).removeAttr( ".active" ); 
+    $('a').removeClass("active");
     $('#nav_developer').addClass("active");
+});
 </script>
+
  @endsection

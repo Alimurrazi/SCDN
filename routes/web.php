@@ -50,6 +50,18 @@ Route::group(['middleware' => 'auth'], function () {
    Route::post('admin/announcement/update/{id}','adminController@announcement_update_second');
    Route::get('admin/announcement/delete/{id}','adminController@announcement_delete');
 
+   Route::get('/admin/blog','adminController@blog');
+   Route::get('/admin/blog/add',function(){
+     return view('admin.blog_add');
+   });
+   Route::post('/admin/blog/add','adminController@blog_add');
+   Route::get('/api/author',function(){
+return App\developer::where('name','LIKE','%'.request('q').'%')->paginate(10);
+});
+      Route::get('/api/tag',function(){
+return App\tag::where('name','LIKE','%'.request('q').'%')->paginate(10);
+});
+
 });
 
 Route::get('/gallery','galleryController@index');
@@ -57,8 +69,13 @@ Route::get('/gallery','galleryController@index');
 Route::get('/developer_list','developerController@index');
 Route::get('/developer_list/specific/{id}','developerController@specific');
 Route::get('/announcement','announcementController@index');
+Route::get('/announcement/{id}','announcementController@specific');
 
 Route::get('/home', 'HomeController@index');
-Route::get('/blog',function(){
-       return view('blog');
+
+Route::get('/blog','blogController@index');
+Route::get('/blog/{id}','blogController@specific');
+
+Route::get('/award',function(){
+   return view('award');
 });
