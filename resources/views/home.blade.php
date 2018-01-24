@@ -41,6 +41,9 @@
                         <a href="/admin/announcement">Announcement</a>
                     </li>
                     <li>
+                        <a href="/admin/award">Award</a>
+                    </li>
+                    <li>
                         <a href="/admin/blog">Blog</a>
                     </li>
                 </ul>

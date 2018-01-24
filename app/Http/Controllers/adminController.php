@@ -16,6 +16,7 @@ use App\attachment;
 use App\blog;
 use App\tag_relation;
 use App\tag;
+use App\award;
 
 class adminController extends Controller
 {
@@ -279,6 +280,76 @@ class adminController extends Controller
       }  
 
       return redirect('admin/blog');
+    }
+
+    public function blog_update_first($id)
+    {
+ 
+                  $data=DB::table('blogs')
+            ->where('blogs.id','=',$id)
+            ->join('tag_relations','tag_relations.blog_id','=','blogs.id')
+            ->join('tags','tags.id','=','tag_relations.tag_id')
+            ->join('developers','developers.id','=','blogs.author')
+
+            ->select('blogs.id','blogs.title','blogs.content','blogs.created_at','blogs.preview',
+                      'tags.name as tag_name' ,'tags.id as tag_id','developers.id as author_id','developers.name as author_name')                
+            //->first();
+
+         ->get();
+         //return $data;
+         return view::make('admin.blog_update')->with('data',$data);   
+
+    }
+
+    public function blog_update_second($id)
+    {
+    //  return Input::all();
+
+      DB::table('blogs')
+        ->where('id','=',$id)
+        ->update(['title'=>Input::get('title'),'content'=>Input::get('summernote'),'author'=>Input::get('author'),'preview'=>Input::get('preview')]);
+
+     DB::table('tag_relations')
+        ->where('blog_id','=',$id)
+        ->update(['tag_id'=>Input::get('tag_id')]);   
+    
+    return redirect('admin/blog');
+
+    }
+
+    public function blog_delete($id)
+    {
+      DB::table('blogs')
+        ->where('id','=',$id)
+        ->delete();
+
+     return redirect('admin/blog');   
+    }
+
+    public function award()
+    {
+      $data=DB::table('awards')
+       ->get();
+
+       return view::make('admin.award')->with('data',$data);
+    }
+
+    public function award_add()
+    {
+        if(Input::hasFile('avatar')) 
+       {
+        $avatar=Input::file('avatar');
+        $filename=time().'.'.$avatar->getClientOriginalExtension();
+        $avatar->move(public_path().'/'.'img'.'/'.'award'.'/',$filename);
+
+        $award=new award;
+        $award->dir='img/award/'.$filename;
+        $award->description=Input::get('description');
+        $award->title=Input::get('title');
+        $award->save();
+        return redirect('/admin/award');
+       }
+
     }
 
 }

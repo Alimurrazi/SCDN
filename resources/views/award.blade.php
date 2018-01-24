@@ -72,7 +72,7 @@
     text-decoration:none;
 }
 
-.card .card-reveal{    
+.card .card-reveal {    
     padding: 20px;
     position: absolute;
     background-color: #FFF;
@@ -86,14 +86,40 @@
     display: none;    
 }
 
+.card .card-reveal1 {    
+    padding: 20px;
+    position: absolute;
+    background-color: #FFF;
+    width: 100%;
+    overflow-y: auto;
+    /*top: 0;*/
+    left:0;
+    bottom:0;
+    height: 100%;
+    z-index: 1;
+    display: none;    
+}
+
+
 .card .card-reveal p{
     color: rgba(0, 0, 0, 0.71);
     margin:20px ;
 }
 
+.card .card-reveal1 p{
+    color: rgba(0, 0, 0, 0.71);
+    margin:20px ;
+}
+
+
 .btn-custom{
     background-color: transparent;
     font-size:18px;
+}
+
+.container
+{
+    margin-bottom: 10px;
 }
 
 </style>	
@@ -101,61 +127,56 @@
 <body>
 
 <div class="container">
-    <div class="row">    
+    <div class="row">
+        @foreach($data as $data)
         <div class="col-md-6">
             <div class="card">
                 <div class="card-image">
-                    <img class="img-responsive" src="http://lorempixel.com/555/300/sports">
+                    <img class="img-responsive" src="{{URL::asset($data->dir)}}">
                     
                 </div><!-- card image -->
                 
                 <div class="card-content">
-                    <span class="card-title">Material Cards</span>                    
-                    <button type="button" id="show" class="btn btn-custom pull-right" aria-label="Left Align">
+                    <span class="card-title">{{$data->title}}</span>                    
+                    <button type="button"  class="btn btn-custom pull-right" aria-label="Left Align">
                         <i class="fa fa-ellipsis-v"></i>
                     </button>
                 </div><!-- card content -->
-                <div class="card-action">
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>                    
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                </div><!-- card actions -->
                 <div class="card-reveal">
-                    <span class="card-title">Card Title</span> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    <span class="card-title">{{$data->title}}</span> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <p>{{$data->description}}</p>
                 </div><!-- card reveal -->
             </div>
         </div>
-
+        @endforeach
+<!--
            <div class="col-md-6">
             <div class="card">
                 <div class="card-image">
-                    <img class="img-responsive" src="http://lorempixel.com/555/300/sports">
+                    <img class="img-responsive" src="{{URL::asset('img/b.jpg')}}">
                     
-                </div><!-- card image -->
+                </div>
                 
                 <div class="card-content">
                     <span class="card-title">Material Cards</span>                    
                     <button type="button" id="show" class="btn btn-custom pull-right" aria-label="Left Align">
                         <i class="fa fa-ellipsis-v"></i>
                     </button>
-                </div><!-- card content -->
+                </div>
                 <div class="card-action">
                     <a href="#" target="new_blank">Link</a>
                     <a href="#" target="new_blank">Link</a>                    
                     <a href="#" target="new_blank">Link</a>
                     <a href="#" target="new_blank">Link</a>
                     <a href="#" target="new_blank">Link</a>
-                </div><!-- card actions -->
+                </div>
                 <div class="card-reveal">
                     <span class="card-title">Card Title</span> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div><!-- card reveal -->
+                </div>
             </div>
         </div>
-
+-->
     </div>
 </div>
 
@@ -163,12 +184,13 @@
 	
 	$(function(){
 
-    $('#show').on('click',function(){        
-        $('.card-reveal').slideToggle('slow');
+    $('.pull-right').on('click',function(){        
+        $(this).parent().parent().find('.card-reveal').slideToggle('slow');
     });
     
     $('.card-reveal .close').on('click',function(){
-        $('.card-reveal').slideToggle('slow');
+    	console.log($(this).parent().find('.card-reveal'));
+        $(this).parent().parent().find('.card-reveal').slideToggle('slow');
     });
 });
 

@@ -84,12 +84,10 @@
                                 <a href="/announcement">Announcement</a>
                             </li>
                             <li>
+                                <a href="/award">Award</a>
+                            </li>
+                            <li>
                                 <a href="blog.html">Blog</a>
-                                <ul class="dropdown">
-                                    <li>
-                                        <a href="blog-item.html">Item Page</a>
-                                    </li>
-                                </ul>
                             </li>
                             <li><a href="contact.html">Contact</a>
                             </li>

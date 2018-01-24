@@ -1,83 +1,231 @@
  @extends('layouts.default')
 
+@section('blog_specific')
+
+<style type="text/css">
+
+body {
+  font-size: 20px;
+  color: #212529;
+  font-family: 'Lora', 'Times New Roman', serif;
+  line-height: 1.5;
+}
+
+p {
+  line-height: 1.5;
+  margin: 30px 0;
+  color: #000;
+}
+
+header.masthead {
+  margin-bottom: 50px;
+  background: no-repeat center center;
+  background-color: #868e96;
+  background-attachment: scroll;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+header.masthead .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+  opacity: 0.5;
+}
+
+header.masthead .page-heading,
+header.masthead .post-heading,
+header.masthead .site-heading {
+  padding: 200px 0 150px;
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  header.masthead .page-heading,
+  header.masthead .post-heading,
+  header.masthead .site-heading {
+    padding: 200px 0;
+  }
+}
+
+header.masthead .page-heading,
+header.masthead .site-heading {
+  text-align: center;
+}
+
+header.masthead .page-heading h1,
+header.masthead .site-heading h1 {
+  font-size: 50px;
+  margin-top: 0;
+}
+
+header.masthead .page-heading .subheading,
+header.masthead .site-heading .subheading {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  display: block;
+  margin: 10px 0 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+  header.masthead .page-heading h1,
+  header.masthead .site-heading h1 {
+    font-size: 80px;
+  }
+}
+
+header.masthead .post-heading h1 {
+  font-size: 35px;
+}
+
+header.masthead .post-heading .meta,
+header.masthead .post-heading .subheading {
+  line-height: 1.1;
+  display: block;
+}
+
+header.masthead .post-heading .subheading {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0 30px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+header.masthead .post-heading .meta {
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  font-family: 'Lora', 'Times New Roman', serif;
+}
+
+header.masthead .post-heading .meta a {
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  header.masthead .post-heading h1 {
+    font-size: 55px;
+  }
+  header.masthead .post-heading .subheading {
+    font-size: 30px;
+  }
+}	
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.share
+{
+	margin-bottom: 20px;
+}
+
+</style>
+
+@endsection
+
 @section('content')
 
-        <div class="container">
-            <div class="row">
-                 
-                <!-- Start Blog Body Section -->
-                <div class="col-md-8 blog-body">
-                    
-                    <!-- Start Blog post -->
-                    <div class="single-blog-post">
-                        <h1 class="post-title"><a href="#">{{$data->title}}</a></h1>
-                        
-
-                    <div class="blog-post">
-                        
-                        <ul class="post-meta">
-							<li><i class="fa fa-clock-o"></i>{{$data->created_at}}</li>
-							<li><i class="fa fa-user"></i><a href="#">{{$data->author_name}}</a></li>
-                            <li><i class="fa fa-tags"></i><a href="#">{{$data->tag_name}}</a></li>
-				<!--			<li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>  -->
-						</ul>
-                        
-                    </div>
-                        
-                        
-                        <p class="post-content">{!! $data->content !!}</p>
-                        
-                        <div class="item-content-footer">
-                            <ul>
-                                <li>Read 286 times</li>
-                                <li class="rating">
-                                    Rate this item 
-                                    <span class="active"><i class="fa fa-star-o"></i></span>
-                                    <span class="active"><i class="fa fa-star-o"></i></span>
-                                    <span class="active"><i class="fa fa-star-o"></i></span>
-                                    <span><i class="fa fa-star-o"></i></span>
-                                    <span><i class="fa fa-star-o"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                    <!-- End Blog Post -->
-                    
-                    
-                    <!-- Start Blog Author Section -->
-
-                    <!-- End Blog Author Section -->
-                    
-                    <!-- End Comments Section -->
-                    
-                    
-                    
-                    
-                </div>
-
-<script src="https://apis.google.com/js/plusone.js"></script>
-<div id="comments"></div>
-<script>
-gapi.comments.render('comments', {
-    href: window.location,
-    width: '624',
-    first_party_property: 'BLOGGER',
-    view_type: 'FILTERED_POSTMOD'
-});
-</script>
-
-                <!-- End Blog Body Section -->                
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>{{$data->title}}</h1>
+              <h2 class="subheading"></h2> 
+              <span class="meta">Posted by
+                <a href="#">{{$data->author_name}}</a>
+                on {{$data->created_at}}</span>
             </div>
+          </div>
         </div>
+      </div>
+    </header>
 
+<article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+
+   <p> {!! $data->content !!} </p>
+        
+        </div>
+        </div>
+      </div>
+</article>
+<hr>
+ 
+      <div class="share">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-3 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+              	<a href="#">
+              	 <span class="twitter-share" data-js="twitter-share">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+              </span>
+          </a>
+              </li>
+              <li class="list-inline-item">
+              	<a href="#">
+                <span class="facebook-share" data-js="facebook-share">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+               </span>
+           </a>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+<hr>
 <script type="text/javascript">
   $(document).ready(function(){
     //$(this).removeAttr( ".active" ); 
     $('a').removeClass("active");
     $('#blog').addClass("active");
 });
+
+var twitterShare = document.querySelector('[data-js="twitter-share"]');
+
+twitterShare.onclick = function(e) {
+  e.preventDefault();
+  var twitterWindow = window.open('https://twitter.com/share?url=' + document.URL, 'twitter-popup', 'height=350,width=600');
+  if(twitterWindow.focus) { twitterWindow.focus(); }
+    return false;
+  }
+
+var facebookShare = document.querySelector('[data-js="facebook-share"]');
+
+facebookShare.onclick = function(e) {
+  e.preventDefault();
+  var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
+  if(facebookWindow.focus) { facebookWindow.focus(); }
+    return false;
+}
+
 </script>
-
-
-@endsection
+@endsection    

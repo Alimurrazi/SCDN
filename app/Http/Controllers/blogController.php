@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\support\facades\Input;
 use DB;
 use View;
+use \stdClass;
 
 class blogController extends Controller
 {
@@ -19,13 +20,27 @@ class blogController extends Controller
 
     	      ->select('blogs.id','blogs.title','blogs.content','blogs.created_at','blogs.preview',
     	               'tags.name as tag_name' ,'tags.id as tag_id','developers.id as author_id','developers.name as author_name')                
-    	      ->get();
+    	      ->paginate(5);
 
 
-    //	return $data;      
+    //	return $data;
+                 $ara=[];
 
-    	return view::make('blog')->with('data',$data);      
+               $all_tag=DB::table('tags')
+                        ->get();
+
+               foreach($all_tag as $index=>$tag_list)
+               {
+                    $ara[$index]=new stdClass;
+                    $ara[$index]->id=$tag_list->id;
+                    $ara[$index]->name=$tag_list->name;
+                    $ara[$index]->number=DB::table('tag_relations')->where('tag_id','=',$tag_list->id)->count();
+
+               }      
+
+    	return view::make('blog')->with('data',$data)->with('ara',$ara);      
     }
+
     public function specific($id)
     {
       
@@ -38,6 +53,8 @@ class blogController extends Controller
     	      ->select('blogs.id','blogs.title','blogs.content','blogs.created_at','blogs.preview',
     	               'tags.name as tag_name' ,'tags.id as tag_id','developers.id as author_id','developers.name as author_name')                
     	      ->first();
+             
+  //return $ara;
 
         return view::make('blog_specific')->with('data',$data);
     }

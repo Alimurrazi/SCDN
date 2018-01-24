@@ -7,6 +7,7 @@
     @yield('developer_list_specific')
     @yield('announcement')
     @yield('announcement_specific')
+    @yield('blog_specific')
 </head>
 <body>
 

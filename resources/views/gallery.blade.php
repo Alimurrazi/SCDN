@@ -22,7 +22,7 @@
         @foreach($data as $data)
         <div class="col-sm-4">
           <!-- source: http://dribbble.com/shots/1115721-Turntable -->
-          <li><a href="{{URL::asset($data->dir)}}" title="{{$data->description}}"><img src="{{URL::asset($data->dir)}}" alt="{{$data->description}}"></a></li>
+          <li><a href="{{URL::asset($data->dir)}}" title="{{$data->description}}"><img class="gallery_image" src="{{URL::asset($data->dir)}}" alt="{{$data->description}}"></a></li>
           </div>
         @endforeach
     </div>
@@ -37,6 +37,12 @@
     //$(this).removeAttr( ".active" ); 
     $('a').removeClass("active");
     $('#nav_gallery').addClass("active");
+    $('.gallery_image').click(function(){
+       console.log("hello");
+       document.body.scrollTop = document.body.scrollHeight
+       //window.scrollTo(0,document.body.scrollHeight);
+    });
 });
+
 </script>
 @endsection

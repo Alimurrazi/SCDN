@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
    Route::get('admin/announcement','adminController@announcement');
    Route::get('/admin/announcement/add',function(){
          return view('admin.announcement_add');
-    }); 
+    });  
    Route::post('admin/announcement/add','adminController@announcement_add');
    Route::get('admin/announcement/update/{id}','adminController@announcement_update_first');
    Route::post('admin/announcement/update/{id}','adminController@announcement_update_second');
@@ -55,12 +55,21 @@ Route::group(['middleware' => 'auth'], function () {
      return view('admin.blog_add');
    });
    Route::post('/admin/blog/add','adminController@blog_add');
+   Route::get('/admin/blog/update/{id}','adminController@blog_update_first');
+   Route::post('/admin/blog/update/{id}','adminController@blog_update_second');
+   Route::get('/admin/blog/delete/{id}','adminController@blog_delete');
    Route::get('/api/author',function(){
 return App\developer::where('name','LIKE','%'.request('q').'%')->paginate(10);
 });
       Route::get('/api/tag',function(){
 return App\tag::where('name','LIKE','%'.request('q').'%')->paginate(10);
 });
+
+Route::get('/admin/award','adminController@award');
+Route::get('/admin/award/add',function(){
+    return View('admin.award_add');
+});
+Route::post('/admin/award/add','adminController@award_add');
 
 });
 
@@ -75,7 +84,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/blog','blogController@index');
 Route::get('/blog/{id}','blogController@specific');
-
-Route::get('/award',function(){
-   return view('award');
+ROute::get('/btest',function(){
+    return view('blog_test');
 });
+
+Route::get('/award','awardController@index');

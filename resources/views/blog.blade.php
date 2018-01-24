@@ -15,7 +15,7 @@
                         
                         <ul class="post-meta">
 							<li><i class="fa fa-clock-o"></i>{{$data->created_at}}</li>
-							<li><i class="fa fa-user"></i><a href="#">{{$data->author_name}}</a></li>
+							<li><i class="fa fa-user"></i><a href="{{URL::asset('developer_list/specific/'.$data->author_id)}}">{{$data->author_name}}</a></li>
 							<li><i class="fa fa-file"></i><a href="#">Blog</a></li>
                             <li><i class="fa fa-tags"></i><a href="#">{{$data->tag_name}}</a></li>
 				<!--			<li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>  -->
@@ -31,16 +31,6 @@
                     
                     
                     <!-- Start Pagination -->
-                    <nav>
-                        <ul class="pagination">
-                            <li class="disabled"><a href="#" aria-label="Start">Start</a></li>
-                            <li class="disabled"><a href="#" aria-label="Previous">Prev</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">Next</a></li>
-                            <li><a href="#">End</a></li>
-                        </ul>
-                    </nav>
                     <!-- End Pagination -->
                     
                 </div>
@@ -52,50 +42,11 @@
                               
 
                     <!-- Start Recent Post Widget -->
-                    <div class="widget widget-recent-post">
-                        
-                        <div class="section-heading-2">
-                            <h3 class="section-title">
-                                <span>Recent Post</span>
-                            </h3>
-                        </div>
-                        
-                        <div class="media">
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Nulla facilisi integer lacinia sollicitudin massa</a></h4>
-                                <ul>
-                                    <li><a href="#">Super User</a></li>
-                                    <li>15 October 2014</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="media">
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Quisque cursus metus vitae pharetra auctor sem massa</a></h4>
-                                <ul>
-                                    <li><a href="#">Super User</a></li>
-                                    <li>15 October 2014</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="media">
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Praesent libero sed cursus ante dapibus diam</a></h4>
-                                <ul>
-                                    <li><a href="#">Super User</a></li>
-                                    <li>15 October 2014</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div>
                     <!-- End Recent Post Widget -->
                     
                     
                     <!-- Start Blog categories widget -->
-                    <div class="widget widget-categories">
+                    <div class="widget widget-categories" style="margin-top: 10px">
                         
                         <div class="section-heading-2">
                             <h3 class="section-title">
@@ -104,26 +55,15 @@
                         </div>
                         
                         <ul>
+                         @foreach($ara as $ara)
+
                             <li>
                                 <i class="fa fa-angle-double-right"></i>
-                                <a href="#">Blog</a>
-                                <a href="#" class="cat-counter">(4)</a>
+                                <a href="{{URL::asset('/blog/tag/'.$ara->id)}}">{{$ara->name}}</a>
+                                <a href="#" class="cat-counter">({{$ara->number}})</a>
                             </li>
-                            <li>
-                                <i class="fa fa-angle-double-right"></i>
-                                <a href="#">News</a>
-                                <a href="#" class="cat-counter">(0)</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-angle-double-right"></i>
-                                <a href="#">Charity</a>
-                                <a href="#" class="cat-counter">(0)</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-angle-double-right"></i>
-                                <a href="#">Fashion</a>
-                                <a href="#" class="cat-counter">(0)</a>
-                            </li>
+
+                         @endforeach
                         </ul>
                         
                     </div>
