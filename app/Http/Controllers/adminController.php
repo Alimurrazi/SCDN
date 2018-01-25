@@ -352,5 +352,47 @@ class adminController extends Controller
 
     }
 
+    public function tag()
+    {
+      $data=DB::table('tags')
+           ->get();
+    // return $data;
+      return view::make('admin.tag')->with('data',$data);     
+    }
+    public function tag_add()
+    {
+      $tag=new tag;
+      $tag->name=Input::get('name');
+      $tag->content=Input::get('content');
+      $tag->save();
+
+      return redirect('/admin/tag');
+    }
+    public function tag_update_first($id)
+    {
+       $data=DB::table('tags')
+             ->where('id','=',$id)
+             ->first();
+
+      return view::make('admin.tag_update')->with('data',$data);       
+
+    }
+    public function tag_update_second($id)
+    {
+        DB::table('tags')
+        ->where('id','=',$id)
+        ->update(['name'=>Input::get('name'),'content'=>Input::get('content')]);
+
+        return redirect('admin/tag');
+    }
+    public function tag_delete($id)
+    {
+        DB::table('tags')
+        ->where('id','=',$id)
+        ->delete();
+
+     return redirect('admin/tag');   
+    }
+
 }
  

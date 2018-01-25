@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-md-7">
                         <div class="copyright">
-                            Copyright © 2014. All Rights Reserved.Design and Developed by <a href="http://www.themefisher.com">Themefisher</a>
+                            Copyright © 2018. All Rights Reserved.Design and Developed by SCDN</a>
                         </div>
                     </div>
                     

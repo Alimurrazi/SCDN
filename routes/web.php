@@ -71,6 +71,15 @@ Route::get('/admin/award/add',function(){
 });
 Route::post('/admin/award/add','adminController@award_add');
 
+Route::get('/admin/tag','adminController@tag');
+   Route::get('/admin/tag/add',function(){
+     return view('admin.tag_add');
+   });
+   Route::post('/admin/tag/add','adminController@tag_add');
+   Route::get('/admin/tag/update/{id}','adminController@tag_update_first');
+   Route::post('/admin/tag/update/{id}','adminController@tag_update_second');
+   Route::get('/admin/tag/delete/{id}','adminController@tag_delete');
+
 });
 
 Route::get('/gallery','galleryController@index');
@@ -84,7 +93,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/blog','blogController@index');
 Route::get('/blog/{id}','blogController@specific');
-ROute::get('/btest',function(){
+Route::get('/blog/tag/{id}','blogController@specific_tag');
+Route::get('/btest',function(){
     return view('blog_test');
 });
 

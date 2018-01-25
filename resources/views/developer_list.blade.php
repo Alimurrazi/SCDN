@@ -13,7 +13,7 @@ body {
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
-  color: #999;
+  color: #999; 
   background-color: #fff;
 }
 
@@ -174,60 +174,25 @@ a:hover{
 
       <div class="container">
         <div class="row">
-
+          
+          @foreach($data as $data)
           <div class="col-md-4">
             <div class="team-member">
               <figure>
-                <img src="{{URL::asset('img/developer_list/c.png')}}" alt="" class="img-responsive">
+                <img src="{{URL::asset($data->image)}}" alt="" class="img-responsive">
                 <figcaption>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores mollitia.</p>
                   <ul>
-                    <li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>
-                    <li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>
-                    <li><a href=""><i class="fa fa-linkedin fa-2x"></i></a></li>
+                    <li><a href="{{$data->facebook}}"><i class="fa fa-facebook fa-2x"></i></a></li>
+                    <li><a href="{{$data->twitter}}"><i class="fa fa-twitter fa-2x"></i></a></li>
+                    <li><a href="{{$data->linkedin}}"><i class="fa fa-linkedin fa-2x"></i></a></li>
                   </ul>
                 </figcaption>
               </figure>
-              <h4>Mr. ABC</h4>
-              <p>Web Developer</p>
+        <a href="{{URL::asset('/developer_list/specific/1')}}"><h4>{$data->name}}</</h4></a>
+              <p>{{$data->specialty}}</p>
             </div><!-- /.team-member-->
           </div><!-- /.col-md-4 -->
-
-          <div class="col-md-4">
-            <div class="team-member">
-              <figure>
-                <img src="{{URL::asset('img/developer_list/b.jpg')}}" alt="" class="img-responsive">
-                <figcaption>
-                  <p>Neque minima ea, a praesentium saepe nihil maxime quod esse numquam explicabo eligendi.</p>
-                  <ul>
-                    <li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>
-                    <li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>
-                    <li><a href=""><i class="fa fa-linkedin fa-2x"></i></a></li>
-                  </ul>
-                </figcaption>
-              </figure>
-              <h4>Mr. DEF</h4>
-              <p>Web Developer</p>
-            </div><!-- /.team-member-->
-          </div><!-- /.col-md-4 -->
-
-          <div class="col-md-4">
-            <div class="team-member">
-              <figure>
-               <img src="{{URL::asset('img/developer_list/c.png')}}" alt="" class="img-responsive">
-                <figcaption>
-                  <p style="margin: 50px"></p>
-                  <ul>
-                    <li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>
-                    <li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>
-                    <li><a href=""><i class="fa fa-linkedin fa-2x"></i></a></li>
-                  </ul>
-                </figcaption>
-              </figure>
-              <a href="{{URL::asset('/developer_list/specific/1')}}"><h4>Mr. XYZ</h4></a>
-              <p>Web Developer</p>
-            </div><!-- /.team-member-->
-          </div><!-- /.col-md-4 -->
+         @endforeach 
 
 
         </div><!-- /.row -->

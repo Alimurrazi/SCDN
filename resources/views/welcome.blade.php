@@ -65,14 +65,14 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <!-- End Toggle Nav Link For Mobiles -->
-                        <a class="navbar-brand" href="index.html">SCDN</a>
+                        <a class="navbar-brand" href="/">SCDN</a>
                     </div>
                     <div class="navbar-collapse collapse">
                         
                         <!-- Start Navigation List -->
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a class="active" href="index.html">Home</a>
+                                <a class="active" href="/">Home</a>
                             </li>
                             <li>
                                 <a href="/gallery">Gallery</a>
@@ -87,7 +87,7 @@
                                 <a href="/award">Award</a>
                             </li>
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a href="/blog">Blog</a>
                             </li>
                             <li><a href="contact.html">Contact</a>
                             </li>
@@ -344,7 +344,7 @@
                 <div class="row">
                     <div class="col-md-7">
                         <div class="copyright">
-                            Copyright © 2014. All Rights Reserved.Design and Developed by <a href="http://www.themefisher.com">Themefisher</a>
+                            Copyright © 2018. All Rights Reserved.Design and Developed by SCDN</a>
                         </div>
                     </div>
                     

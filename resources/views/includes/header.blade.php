@@ -6,14 +6,14 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <!-- End Toggle Nav Link For Mobiles -->
-                        <a class="navbar-brand" href="index.html">SCDN</a>
+                        <a class="navbar-brand" href="/">SCDN</a>
                     </div>
                     <div class="navbar-collapse collapse">
                         
                         <!-- Start Navigation List -->
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a class="active" id="nav_home" href="index.html">Home</a>
+                                <a class="active" id="nav_home" href="/">Home</a>
                             </li>
                             <li>
                                 <a id="nav_gallery" href="/gallery">Gallery</a>

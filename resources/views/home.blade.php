@@ -46,6 +46,10 @@
                     <li>
                         <a href="/admin/blog">Blog</a>
                     </li>
+                    <li>
+                        <a href="/admin/tag">Tag</a>
+                    </li>
+
                 </ul>
 
             </nav>
