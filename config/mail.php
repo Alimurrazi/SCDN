@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'hello@example.com',
-        'name' => 'Example',
+        'address' => 'sustcsequestionbank@gmail.com',
+        'name' => 'SUST CSE Developers networks Reset Password',
     ],
 
     /*
@@ -109,7 +109,16 @@ return [
     | been provided here, which will work well on most of your systems.
     |
     */
-
+/* add this line to setup gmail for reset password*/
     'sendmail' => '/usr/sbin/sendmail -bs',
+
+    'stream' => [
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ],
+    ],
+
 
 ];

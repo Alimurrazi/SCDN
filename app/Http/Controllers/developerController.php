@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\support\facades\Input; 
 use View;
 use DB;
-
+ 
 class developerController extends Controller
 {
     public function index()
@@ -37,7 +37,7 @@ class developerController extends Controller
     	  //     ->where('developer_id','=',$id)
     	    //   ->get();
 
-        // return $data;
+        // return $data_blog;
 
     	return view::make('developer_list_specific')->with('data',$data)->with('data_skill',$data_skill)->with('data_blog',$data_blog);
     }

@@ -73,10 +73,12 @@ class blogController extends Controller
               ->get();
 
         //     check the tag have any blog post or don't have; 
-         if(isset($data->title))
+         if(isset($data[0]->title))
         return view::make('blog_specific_tag')->with('data',$data);
 
         else
-        return redirect('/blog');      
+        {
+        return redirect('/blog');
+        }      
     }
 }

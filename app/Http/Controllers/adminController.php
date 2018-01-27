@@ -17,6 +17,7 @@ use App\blog;
 use App\tag_relation;
 use App\tag;
 use App\award;
+use App\project;
 
 class adminController extends Controller
 {
@@ -104,9 +105,6 @@ class adminController extends Controller
 
     public function developer_add()
     {
-      // return Input::all();
-      // return Input::get('experience[0]');
-      // return "hello";
 
        $developer=new developer;
        $developer->name=Input::get('name');
@@ -155,6 +153,99 @@ class adminController extends Controller
        }
 
     }
+ 
+    public function developer_update_first($id)
+    {
+       $data1=DB::table('developers')
+              ->where('id','=',$id)
+              ->first();
+
+       $data2=DB::table('developer_experiences')
+              ->where('developer_id','=',$id)
+              ->get();
+
+       $data3=DB::table('developer_skill')
+              ->where('developer_id','=',$id)
+              ->get();
+
+       return view::make('admin.developer_update')->with('data1',$data1)->with('data2',$data2)->with('data3',$data3);                       
+    }
+
+    public function developer_update_second($id)
+    {
+       if(Input::hasFile('avatar')) 
+       {
+        $avatar=Input::file('avatar');
+        $filename=time().'.'.$avatar->getClientOriginalExtension();
+        $avatar->move(public_path().'/'.'img'.'/'.'developer_list'.'/',$filename);
+
+        DB::table('developers')
+            ->where('id','=',$id)
+            ->update(['image' =>'img/developer_list/'.$filename]);    
+       }
+       
+       DB::table('developers')
+          ->where('id','=',$id)
+          ->update(['name'=>Input::get('name'),'specialty'=>Input::get('specialty'),'website'=>Input::get('website'),'facebook'=>Input::get('facebook'),'twitter'=>Input::get('twitter'),'github'=>Input::get('github'),'email'=>Input::get('email'),'linkedin'=>Input::get('linkedin')]);
+
+       
+       DB::table('developer_experiences')
+           ->where('developer_id','=',$id)
+           ->delete();
+
+       DB::table('developer_skill')
+           ->where('developer_id','=',$id)
+           ->delete();
+
+
+       $experience=Input::get('experience');
+       $duration=Input::get('duration');
+       foreach( $experience as $index => $experience )
+       {
+        $experience_row=new developer_experience;
+        $experience_row->developer_id=$id;
+        $experience_row->experience=$experience;
+        $experience_row->duration=$duration[$index];
+        $experience_row->save();
+       }
+
+       $skill=Input::get('skill');
+       foreach($skill as $skill)
+       {
+         $skill_row=new developer_skill;
+         $skill_row->developer_id=$id;
+         $skill_row->skill=$skill;
+         $skill_row->save();
+       }
+
+
+      return redirect('/admin/developer_list');
+    }
+
+    public function developer_delete($id)
+    {
+
+      $filepath=DB::table('developers')
+                ->where('id','=',$id)
+                ->value('image');
+
+           DB::table('developers')
+           ->where('id','=',$id)
+           ->delete();
+
+      File::delete(public_path().'/'.$filepath); 
+
+      DB::table('developer_experiences')
+              ->where('developer_id','=',$id)
+              ->delete();
+
+      DB::table('developer_skill')
+              ->where('developer_id','=',$id)
+              ->delete();
+
+      return redirect('/admin/developer_list'); 
+    }
+
     public function announcement()
     {
       $data=DB::table('announcements')
@@ -248,6 +339,7 @@ class adminController extends Controller
          ->update(['dir'=>'attachment/'.$filename]);
 
         }
+        return redirect('admin/announcement'); 
     }
  
     public function blog()
@@ -336,6 +428,8 @@ class adminController extends Controller
 
     public function award_add()
     {
+        //return Input::all();
+
         if(Input::hasFile('avatar')) 
        {
         $avatar=Input::file('avatar');
@@ -350,6 +444,52 @@ class adminController extends Controller
         return redirect('/admin/award');
        }
 
+    }
+
+    public function award_update_first($id)
+    {
+        $data=DB::table('awards')
+           ->where('id','=',$id)
+           ->first();
+
+      return view::make('admin.award_update')->with('data',$data);
+
+    }
+
+    public function award_update_second($id)
+    {
+          
+     if(Input::hasFile('avatar')) 
+       {
+        $avatar=Input::file('avatar');
+        $filename=time().'.'.$avatar->getClientOriginalExtension();
+        $avatar->move(public_path().'/'.'img'.'/'.'award'.'/',$filename);
+        DB::table('awards')
+            ->where('id','=',$id)
+            ->update(['dir' =>'img/award/'.$filename]);    
+       }
+
+      $description=Input::get('description');
+      $title=Input::get('title');
+      DB::table('awards')
+          ->where('id','=',$id)
+          ->update(['description'=>$description,'title'=>$title]);
+    //  return $description;
+      return redirect('/admin/award');
+
+    }
+    
+    public function award_delete($id)
+    {
+             $filepath=DB::table('awards')
+                ->where('id','=',$id)
+                ->value('dir');
+
+           DB::table('awards')
+           ->where('id','=',$id)
+           ->delete();
+
+      File::delete(public_path().'/'.$filepath); 
     }
 
     public function tag()
@@ -393,6 +533,74 @@ class adminController extends Controller
 
      return redirect('admin/tag');   
     }
+    
+    public function project()
+    {
+      $data=DB::table('projects')
+           ->get();
+    // return $data;
+      return view::make('admin.project')->with('data',$data);     
+    }
+
+    public function project_add()
+    {
+
+     // return Input::all();
+ 
+            if(Input::hasFile('avatar')) 
+       {
+        $avatar=Input::file('avatar');
+        $filename=time().'.'.$avatar->getClientOriginalExtension();
+        $avatar->move(public_path().'/'.'img'.'/'.'project'.'/',$filename);
+
+        $project=new project;
+        $project->image='img/project/'.$filename;
+        $project->title=Input::get('title');
+        $project->description=Input::get('description');
+        $project->url=Input::get('url');
+        $project->save();
+
+        return redirect('/admin/project');
+       }
+    }
+
+    public function project_update_first($id)
+    {
+       $data=DB::table('projects')
+             ->where('id','=',$id)
+             ->first();
+      
+     // return $data;
+      return view::make('admin.project_update')->with('data',$data);       
+
+    }
+    public function project_update_second($id)
+    {
+          if(Input::hasFile('avatar')) 
+       {
+        $avatar=Input::file('avatar');
+        $filename=time().'.'.$avatar->getClientOriginalExtension();
+        $avatar->move(public_path().'/'.'img'.'/'.'project'.'/',$filename);
+        DB::table('projects')
+            ->where('id','=',$id)
+            ->update(['image' =>'img/project/'.$filename]);    
+       }
+
+      DB::table('projects')
+          ->where('id','=',$id)
+          ->update(['description'=>Input::get('description'),'title'=>Input::get('title'),'url'=>Input::get('url')]);
+
+      return redirect('/admin/project');
+    }
+
+    public function project_delete($id)
+    {
+        DB::table('projects')
+        ->where('id','=',$id)
+        ->delete();
+
+     return redirect('admin/project');   
+    } 
 
 }
  

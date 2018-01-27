@@ -8,6 +8,9 @@
     @yield('announcement')
     @yield('announcement_specific')
     @yield('blog_specific')
+    @yield('blog_specific_tag')
+    @yield('award')
+    @yield('project')
     <!--
     <style type="text/css">
       .main-container
@@ -34,8 +37,10 @@
       <div class="main-container">
       	 @yield('content')
       </div>
+
     <div class="main-footer">
-    	@include('includes.footer')
+  
     </div>
+
 </body>
 </html>

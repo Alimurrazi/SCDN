@@ -134,11 +134,28 @@ h6 {
 	margin-bottom: 20px;
 }
 
+.fb-comments
+{
+  text-align: center;
+}
+
 </style>
 
 @endsection
 
 @section('content')
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
 
     <header class="masthead" style="background-image: url('img/post-bg.jpg')">
       <div class="overlay"></div>
@@ -149,7 +166,7 @@ h6 {
               <h1>{{$data->title}}</h1>
               <h2 class="subheading"></h2> 
               <span class="meta">Posted by
-                <a href="#">{{$data->author_name}}</a>
+                <a href="{{URL::asset('/developer_list/specific/'.$data->author_id)}}" style="color: orange">{{$data->author_name}}</a> 
                 on {{$data->created_at}}</span>
             </div>
           </div>
@@ -202,6 +219,14 @@ h6 {
       </div>
   </div>
 <hr>
+
+<div class="row">
+<div class="col-md-2 col-md-offset-3">
+<div class="fb-comments" data-href="{{URL::asset('SCDN/blog/'.$data->id)}}" data-numposts="5"></div>
+</div>
+</div>
+
+
 <script type="text/javascript">
   $(document).ready(function(){
     //$(this).removeAttr( ".active" ); 

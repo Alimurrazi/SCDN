@@ -25,12 +25,12 @@
                                 <a id="news" href="/announcement">Announcement</a>
                             </li>
                             <li>
-                                <a href="/award">Award</a>
+                                <a id="award" href="/award">Award</a>
                             </li>
                             <li>
                                 <a id="blog" href="/blog">Blog</a>
                             </li>
-                            <li><a href="contact.html">Contact</a>
+                            <li><a  id="project" href="/project">Project</a>
                             </li>
                         </ul>
                         <!-- End Navigation List -->

@@ -89,7 +89,10 @@
                             <li>
                                 <a href="/blog">Blog</a>
                             </li>
-                            <li><a href="contact.html">Contact</a>
+                            <li><a href="/project">Project</a>
+                            </li>
+                            <li>
+                                <a href="#contact">Contact</a>
                             </li>
                         </ul>
                         <!-- End Navigation List -->
@@ -134,7 +137,7 @@
                </div>
                <div class="col-md-7">
                    <div class="about-text">
-                       <p>Some Students of CSE-11 batch of SUST made an organization called SUST CSE Developer's Network(SCDN). The main purpose of the organization is to built a platform for the newbies cse developers. So that they can interact with each other and keep in touch with senoirs. </p>
+                       <p>Some Students of CSE department of SUST made an organization called SUST CSE Developer's Network(SCDN). The main purpose of the organization is to built a platform for the newbies cse developers. So that they can interact with each other and keep in touch with senoirs. </p>
                    </div>
                    
                </div>
@@ -185,42 +188,42 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="services-post">
-                    <a href="#"><i class="fa fa-tasks"></i></a>
+                    <a href="/project"><i class="fa fa-tasks"></i></a>
                     <h2>Projects</h2>
               <p>Selected Projects of students of SUST </p>
                 </div>
                     </div>
                     <div class="col-md-4">
                         <div class="services-post">
-                    <a href="#"><i class="fa fa-code"></i></a>
+                    <a href="/announcement"><i class="fa fa-code"></i></a>
                     <h2>Announcement</h2>
               <p>News about workshop & Codathon </p>
                 </div>
                     </div>
                     <div class="col-md-4">
                         <div class="services-post">
-                    <a href="#"><i class="fa fa-code-fork"></i></a>
+                    <a href="/developer_list"><i class="fa fa-code-fork"></i></a>
                     <h2>Developer's List</h2>
               <p>Top developers who are master in their field </p>
                 </div>
                     </div>
                     <div class="col-md-4">
                         <div class="services-post">
-                    <a href="#"><i class="fa fa-trophy"></i></a>
-                    <h2>Achievement</h2>
+                    <a href="/award"><i class="fa fa-trophy"></i></a>
+                    <h2>Award</h2>
               <p>Awards achieved by students of SUST </p>
                 </div>
                     </div>
                     <div class="col-md-4">
                         <div class="services-post">
-                    <a href="#"><i class="fa fa-picture-o"></i></a>
+                    <a href="/gallery"><i class="fa fa-picture-o"></i></a>
                     <h2>Gallery</h2>
               <p>A portion of our activity </p>
                 </div>
                     </div>
                     <div class="col-md-4">
                         <div class="services-post">
-                    <a href="#"><i class="fa fa-newspaper-o"></i></a>
+                    <a href="/blog"><i class="fa fa-newspaper-o"></i></a>
                     <h2>Blog</h2>
               <p>Explore the tech world </p>
                 </div>
@@ -262,7 +265,7 @@
                         <!--    <p>Contents of Our Site</p>  -->
                         </div>                        
                                 <div class="col-md-3">
-                        <a href="#"><i class="fa fa-facebook-official fa-5x" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/scdnlab/"><i class="fa fa-facebook-official fa-5x" aria-hidden="true"></i></a>
                     </div>
                                 <div class="col-md-3">
                         <a href="#"><i class="fa fa-youtube-play fa-5x" aria-hidden="true" style="color: red"></i></a>
@@ -317,7 +320,7 @@
                     
                     
                     
-                    <div class="col-md-6">
+                    <div class="col-md-6" id="contact">
                         <div class="section-heading-2">
                             <h3 class="section-title">
                                 <span>Stay With us</span>
@@ -326,8 +329,14 @@
                         <div class="subscription">
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your E-mail" id="name" required data-validation-required-message="Please enter your name.">
-                                <input type="submit" class="btn btn-primary" value="Subscribe">
+                         <form method="post" action="/message/store" class="form" accept-charset="UTF-8" enctype="multipart/form-data"> 
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="text" name="email" class="form-control" placeholder="Your E-mail" id="name" required data-validation-required-message="Please enter your name.">
+                                <textarea style="width: 550px;height: 100px;" placeholder="Your Message" required name="content">
+                                    
+                                </textarea>
+                                <input type="submit" class="btn btn-primary" value="Send">
+                                  </form>
                             </div>
                         </div>
                     </div>

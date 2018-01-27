@@ -49,6 +49,14 @@
                     <li>
                         <a href="/admin/tag">Tag</a>
                     </li>
+                                        <li>
+                        <a href="/admin/project">Project</a>
+                    </li>
+
+                                                            <li>
+                        <a href="/admin/message">Message</a>
+                    </li>
+
 
                 </ul>
 

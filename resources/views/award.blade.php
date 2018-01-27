@@ -41,6 +41,7 @@
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 4 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  /*max-height: 300px;*/
 }
 
 .card .card-content {
@@ -144,7 +145,8 @@
                 </div><!-- card content -->
                 <div class="card-reveal">
                     <span class="card-title">{{$data->title}}</span> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <p>{{$data->description}}</p>
+                    <p>{{$data->description}}</p> 
+                   <p>
                 </div><!-- card reveal -->
             </div>
         </div>
@@ -192,7 +194,13 @@
     	console.log($(this).parent().find('.card-reveal'));
         $(this).parent().parent().find('.card-reveal').slideToggle('slow');
     });
+
+        $('a').removeClass("active");
+    $('#award').addClass("active");
+
 });
+</script>
+
 
 </script>
 

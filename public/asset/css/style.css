@@ -34,12 +34,14 @@ ul {
     margin: 0;
 }
 
+/*
 p {
-    /*font-size: 16px;*/
+    font-size: 16px;
     font-weight: 400;
     color: #444;
     line-height: 1.5em;
 }
+*/
 
 a {
     transition: color 0.2s ease-in-out;
@@ -1639,7 +1641,7 @@ h1.post-title {
 }
 
 h1.post-title a {
-    color: #5c5c5c;
+    /*color: #5c5c5c;*/
 }
 
 .blog-post ul.post-meta {

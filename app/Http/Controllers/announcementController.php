@@ -16,7 +16,7 @@ class announcementController extends Controller
     	      //->join('attachments','announcements.id','=','attachments.announcement_id')
     	      //->select('announcements.id','announcements.title','announcements.content','announcements.date','attachments.dir')
     	      ->get();
-
+          
     	return view::make('announcement')->with('data',$data);
     }
     public function specific($id)
@@ -30,3 +30,4 @@ class announcementController extends Controller
         return view::make('announcement_specific')->with('data',$data);
     }
 }
+ 

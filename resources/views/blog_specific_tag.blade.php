@@ -1,4 +1,32 @@
   @extends('layouts.default')
+ 
+ @section('blog_specific_tag')
+
+<style type="text/css">
+    
+    .section-title {
+     margin-bottom: 10px;
+     text-align: center; 
+    }
+    .sidebar .section-heading-2 {
+    margin-bottom: 0px;
+}
+
+     body
+     {
+    color: black;
+    font-family: 'Lora', 'Times New Roman', serif;
+     }
+     p
+     {
+          font-size: 15px;
+  color: #212529;
+  font-family: 'Lora', 'Times New Roman', serif;
+  line-height: 1.5;
+     }
+</style>
+ 
+ @endsection
 
 @section('content')
 

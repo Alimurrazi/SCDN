@@ -18,6 +18,10 @@
 		{
 			margin: 5px;
 		}
+		#new_experience,#new_skill
+		{
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
@@ -35,6 +39,11 @@
  	<input type="radio" name="specialty" value="Web Developer"><span class="s_option">Web Developer</span><br>
  	<input type="radio" name="specialty" value="Android Developer"><span class="s_option">Android Developer</span><br>
  	<input type="radio" name="specialty" value="IOS Developer"><span class="s_option">IOS Developer</span><br>
+ 		<input type="radio" name="specialty" value="Game Developer"><span class="s_option">Game Developer</span><br>
+ 			<input type="radio" name="specialty" value="Python Developer"><span class="s_option">Python Developer</span><br>
+ 				<input type="radio" name="specialty" value="Java Developer"><span class="s_option">Java Developer</span><br>
+ 				<input type="radio" name="specialty" value="All rounder"><span class="s_option">All  Rounder</span><br>
+
     </div>
  	<label>Email</label> <input type="email" name="email" placeholder="Email">
  	</div>

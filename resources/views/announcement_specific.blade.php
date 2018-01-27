@@ -8,7 +8,7 @@
  }
  	h2
  	{
- 		text-align: left;
+ 		text-align: center;
  		font-family:  serif;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -41,7 +41,7 @@
  <div class="container">
  	<h2>Announcement</h2>
  	<h3>{{$data->title}}</h3>
- 	<h4>Date: {{$data->date}}2018-12-04</h4>
+ 	<h4>Date: {{$data->date}}</h4>
     <p>{{$data->content}}</p>
     <div>
     	<!--
@@ -49,7 +49,9 @@
         -->
  
     <!--	<a href="/attachment/{{$data->id}}" class="btn btn-primary">View Attachment</a> -->
+         @if($data->dir!="null")
     	<a href="{{URL::asset($data->dir)}}" class="btn btn-primary">View Attachment</a>
+        @endif
     </div>
  </div>
 

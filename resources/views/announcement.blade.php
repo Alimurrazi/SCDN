@@ -39,12 +39,43 @@
 <div class="container">
 
 @foreach($data as $data)
+ @php
+  
+$date = explode('/', $data->date);
+$month = $date[0];
+if($month==1)
+$month="Jan";
+if($month==2)
+$month="Feb";
+if($month==3)
+$month="Mar";
+if($month==4)
+$month="Apr";
+if($month==5)
+$month="May";
+if($month==6)
+$month="Jun";
+if($month==7)
+$month="Jul";
+if($month==8)
+$month="Aug";
+if($month==9)
+$month="Sep";
+if($month==10)
+$month="Oct";
+if($month==11)
+$month="Nov";
+if($month==12)
+$month="Dec";
+$day   = $date[1];
+$year  = $date[2];
 
+ @endphp
         <ul class="announcement-ul">
 	 <li>
 	 		 <div class="time">
- 	<div class="date">10</div>
- 	<div class="month">Jan 18</div>
+ 	<div class="date">{{$day}}</div>
+ 	<div class="month">{{$month." ".$year}}</div>
  </div>
  <a href="/announcement/{{$data->id}}">{{$data->title}}</a>
 	 </li>	

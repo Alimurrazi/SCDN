@@ -133,6 +133,10 @@ body {
     color: #a5a5a5;
     letter-spacing: 1px;
 }
+.img-responsive
+{
+    max-height: 200px;
+}
 
   </style>
 
@@ -157,9 +161,9 @@ body {
                                         
                                     </div>
                                     <div class="s-link">
-                                        <a href="{{$data->facebook}}"><i class="fa fa-facebook"></i></a>
-                                        <a href="{{$data->twitter}}"><i class="fa fa-twitter"></i></a>
-                                        <a href="{{$data->linkedin}}"><i class="fa fa-linkedin"></i></a>
+                                        <a href="{{$data->facebook}}"><i class="fa fa-facebook fa-3x"></i></a>
+                                        <a href="{{$data->twitter}}"><i class="fa fa-twitter fa-3x"></i></a>
+                                        <a href="{{$data->linkedin}}"><i class="fa fa-linkedin fa-3x"></i></a>
                                     </div>
                                 </div>
                             </div>

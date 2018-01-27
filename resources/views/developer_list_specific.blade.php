@@ -68,7 +68,7 @@
                           </div>
                            <hr>
                           <ul class="container details" >
-                            <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span><a href="{{$data[0]->website}}">{{$data[0]->website}}</a></p></li>
+                            <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span><a href="{{$data[0]->website}}">Website</a></p></li>
                             <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{$data[0]->email}}</p></li>
                           </ul>
                           <hr>
@@ -100,9 +100,9 @@
   </div>
 
 </div>
-
+ 
 {{-- $data_blog empty naki ta check kora hoiche --}}
-@if(isset($data_blog->title))  
+@if($data_blog)  
  <div class="row">
   <div class="col-md-4">
       <h3>Blog</h3>

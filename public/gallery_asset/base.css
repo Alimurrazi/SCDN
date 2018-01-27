@@ -1,0 +1,13 @@
+@import url(css/bootstrap.css);             /*Bootstrap base CSS*/
+@import url(fonts/font-faces.css);         		/*font-faces.css*/
+@import url(css/font-awesome.css);         	/*font-awesome.css*/
+@import url(css/magnific-popup.css);
+@import url(css/mediaelementplayer.css);
+
+@import url(css/masterslider.css); /*Base MasterSlider style sheet*/ 
+@import url(css/car_style/style.css); /*Base MasterSlider style sheet*/ 
+
+@import url(style.css);          	   /*template style*/
+
+/*@import url(styles/skin1.css);*/
+/*@import url(styles/skin2.css);*/

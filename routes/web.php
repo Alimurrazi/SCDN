@@ -18,6 +18,63 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// $this->get('admin/login', 'Auth\AuthController@showLoginForm');
+
+Route::group(['prefix' => 'admin'], function () {
+
+    
+
+});
+
+/* auth redeclare to override */
+
+/*
+// Authentication Routes...
+Route::get('admin\login', [
+  'as' => 'login',
+  'uses' => 'Auth\LoginController@showLoginForm'
+]);
+Route::post('admin\login', [
+  'as' => '',
+  'uses' => 'Auth\LoginController@login'
+]);
+Route::post('admin\logout', [
+  'as' => 'logout',
+  'uses' => 'Auth\LoginController@logout'
+]);
+
+// Password Reset Routes...
+Route::post('password/email', [
+  'as' => 'password.email',
+  'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail'
+]);
+Route::get('password/reset', [
+  'as' => 'password.request',
+  'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm'
+]);
+Route::post('password/reset', [
+  'as' => '',
+  'uses' => 'Auth\ResetPasswordController@reset'
+]);
+Route::get('password/reset/{token}', [
+  'as' => 'password.reset',
+  'uses' => 'Auth\ResetPasswordController@showResetForm'
+]);
+
+// Registration Routes...
+Route::get('admin\register', [
+  'as' => 'register',
+  'uses' => 'Auth\RegisterController@showRegistrationForm'
+]);
+Route::post('admin\register', [
+  'as' => '',
+  'uses' => 'Auth\RegisterController@register'
+]);
+*/
+
+/*  */
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/messi', function ()    {
         // Uses Auth Middleware
@@ -28,7 +85,7 @@ Route::group(['middleware' => 'auth'], function () {
  });
     Route::get('/admin/gallery','adminController@gallery');
     Route::get('/admin/gallery/add',function(){
-         return view('admin.gallery_add');
+         return view('admin.gallery_add'); 
     });
     Route::post('/admin/gallery/add','adminController@gallery_add');
     Route::get('/admin/gallery/update/{id}','adminController@gallery_update_first');
@@ -40,6 +97,9 @@ Route::group(['middleware' => 'auth'], function () {
          return view('admin.developer_add');
     });
    Route::post('/admin/developer/add','adminController@developer_add');
+   Route::get('admin/developer/update/{id}','adminController@developer_update_first');
+   Route::post('admin/developer/update/{id}','adminController@developer_update_second');
+   Route::get('admin/developer/delete/{id}','adminController@developer_delete');
    
    Route::get('admin/announcement','adminController@announcement');
    Route::get('/admin/announcement/add',function(){
@@ -70,6 +130,11 @@ Route::get('/admin/award/add',function(){
     return View('admin.award_add');
 });
 Route::post('/admin/award/add','adminController@award_add');
+Route::get('/admin/award/update/{id}','adminController@award_update_first');
+Route::post('/admin/award/update/{id}','adminController@award_update_second');
+Route::get('/admin/award/delete/{id}','adminController@award_delete');
+
+
 
 Route::get('/admin/tag','adminController@tag');
    Route::get('/admin/tag/add',function(){
@@ -80,7 +145,18 @@ Route::get('/admin/tag','adminController@tag');
    Route::post('/admin/tag/update/{id}','adminController@tag_update_second');
    Route::get('/admin/tag/delete/{id}','adminController@tag_delete');
 
-});
+
+  Route::get('/admin/project','adminController@project');
+   Route::get('/admin/project/add',function(){
+     return view('admin.project_add');
+   });
+   Route::post('/admin/project/add','adminController@project_add');
+   Route::get('/admin/project/update/{id}','adminController@project_update_first');
+   Route::post('/admin/project/update/{id}','adminController@project_update_second');
+   Route::get('/admin/project/delete/{id}','adminController@project_delete');
+
+   Route::get('/admin/message','messageController@show');
+}); 
 
 Route::get('/gallery','galleryController@index');
 
@@ -99,3 +175,6 @@ Route::get('/btest',function(){
 });
 
 Route::get('/award','awardController@index');
+Route::get('/project','projectController@index');
+
+Route::post('/message/store','messageController@store');
