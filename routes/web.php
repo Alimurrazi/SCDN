@@ -83,6 +83,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', function () {
     return view('home');
  });
+        Route::get('/home', function () {
+    return view('home');
+ });
+
     Route::get('/admin/gallery','adminController@gallery');
     Route::get('/admin/gallery/add',function(){
          return view('admin.gallery_add'); 
@@ -156,6 +160,7 @@ Route::get('/admin/tag','adminController@tag');
    Route::get('/admin/project/delete/{id}','adminController@project_delete');
 
    Route::get('/admin/message','messageController@show');
+   Route::get('/admin/user','adminController@user');
 }); 
 
 Route::get('/gallery','galleryController@index');

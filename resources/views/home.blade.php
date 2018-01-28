@@ -56,7 +56,9 @@
                                                             <li>
                         <a href="/admin/message">Message</a>
                     </li>
-
+                                                            <li>
+                        <a href="/admin/user">User</a>
+                    </li>
 
                 </ul>
 
