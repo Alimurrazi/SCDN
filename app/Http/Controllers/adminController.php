@@ -18,6 +18,7 @@ use App\tag_relation;
 use App\tag;
 use App\award;
 use App\project;
+use App\admin;
 
 class adminController extends Controller
 {
@@ -601,6 +602,20 @@ class adminController extends Controller
 
      return redirect('admin/project');   
     } 
+
+    public function user()
+    {
+       $data=DB::table('users')
+             ->get();
+    }
+    public function make_admin($id)
+    {
+       
+    }
+    public function user_delete()
+    {
+
+    }
 
 }
  
